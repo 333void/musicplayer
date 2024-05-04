@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>x3's MUSICPLAYER</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="mp.css">
+    <script src="src/mp.info.js"></script>
+    <script src="src/musicplayer.js"></script>
+  </head>
+  <body>
+    <div id="mp-title">
+      <svg class="mp-title-svg w5">
+        <path class="mp-path title" d="M 0 0 L 0 8 L 2 8 L 2 4 L 4 8 L 6 4 L 6 8 L 8 8 L 8 0 L 6 0 L 4 4 L 2 0 L 0 0 M 9 0 L 9 6 C 9 8 11 8 11 8 L 15 8 C 15 8 17 8 17 6 L 17 0 L 15 0 L 15 5 C 15 6 14 6 14 6 L 12 6 C 12 6 11 6 11 5 L 11 0 L 9 0 M 19 0 C 19 0 18 0 18 1 L 18 4 C 18 5 19 5 19 5 L 23 5 C 24 5 24 6 23 6 L 18 6 L 18 7 C 18 8 19 8 19 8 L 25 8 C 25 8 26 8 26 7 L 26 4 C 26 3 25 3 25 3 L 21 3 C 20 3 20 2 21 2 L 26 2 L 26 1 C 26 0 25 0 25 0 L 19 0 M 27 0 L 35 0 L 35 2 L 32 2 L 32 6 L 35 6 L 35 8 L 27 8 L 27 6 L 30 6 L 30 2 L 27 2 L 27 0 M 38 0 L 43 0 C 43 0 44 0 44 1 L 44 2 L 39 2 C 39 2 38 2 38 3 L 38 5 C 38 6 39 6 39 6 L 44 6 L 44 7 C 44 8 43 8 43 8 L 38 8 C 38 8 36 8 36 6 L 36 2 C 36 0 38 0 38 0" />
+      </svg>
+      <svg class="mp-title-svg w6">
+        <path class="mp-path title" d="M 0 0 L 6 0 C 6 0 8 0 8 2 L 8 4 C 8 6 6 6 6 6 L 2 6 L 2 8 L 0 8 Z M 2 2 L 5 2 C 5 2 6 2 6 3 C 6 4 5 4 5 4 L 2 4 L 2 2 M 9 0 L 9 7 C 9 8 10 8 10 8 L 17 8 L 17 6 L 11 6 L 11 0 L 9 0 M 18 2 L 18 8 L 20 8 L 20 6 L 24 6 L 24 8 L 26 8 L 26 2 C 26 0 24 0 24 0 L 20 0 C 20 0 18 0 18 2 M 20 4 L 24 4 L 24 3 C 24 2 23 2 23 2 L 21 2 C 21 2 20 2 20 3 L 20 4 M 27 0 L 27 4 C 27 5 28 5 28 5 L 30 5 L 30 8 L 32 8 L 32 5 L 34 5 C 34 5 35 5 35 4 L 35 0 L 33 0 L 33 2 C 33 3 33 3 33 3 L 29 3 C 29 3 29 3 29 2 L 29 0 L 27 0 M 36 0 L 36 8 L 44 8 L 44 6 L 38 6 L 38 5 L 44 5 L 44 3 L 38 3 L 38 2 L 44 2 L 44 0 L 36 0 M 45 0 L 45 8 L 47 8 L 47 6 L 50 6 C 50 6 51 6 51 7 L 51 8 L 53 8 L 53 6 C 53 5 52 5 52 5 C 52 5 53 5 53 4 L 53 2 C 53 0 51 0 51 0 L 45 0 M 47 2 L 47 4 L 50 4 C 50 4 51 4 51 3 C 51 2 50 2 50 2 L 47 2" />
+      </svg>
+    </div>
+    <div id="mp-con">
+      <div id="musicplayer">
+        <audio id="mp-audio">
+          <source src="toe.ogg" type="audio/ogg" />
+          <source src="toe.mp3" type="audio/mpeg" />
+        </audio>
+        <!-- album cover -->
+        <div class="mp-item">
+          <span id="mp-cover-tt" class="mp-tooltip"></span>
+          <img id="mp-cover-art">
+        </div>
+        <!-- play button -->
+        <div class="mp-item">
+          <svg id="mp-pp-svg" xmlns="http://www.w3.org/2000/svg">
+            <path id="mp-play-pause" class="mp-path" d="M 0 0 L 0 8 L 8 4 L 0 0" />
+          </svg>
+        </div>
+        <!-- volume knob -->
+        <div class="mp-item">
+          <span id="mp-vol-tt" class="mp-tooltip"></span>
+          <svg id="mp-vol-svg" xmlns="http://www.w3.org/2000/svg">
+            <g id="mp-vol-knob">
+              <circle id="mp-volume" class="mp-path" cx="4" cy="4" r="4" />
+              <rect id="mp-vol-line" class="mp-path dark" width="2" height="2"/>
+            </g>
+          </svg>
+        </div>
+        <!-- progress bar -->
+        <div class="mp-item">
+          <span id="mp-pb-tt" class="mp-tooltip"></span>
+          <svg id="mp-progbar-svg" xmlns="http://www.w3.org/2000/svg">
+            <rect class="mp-path" width="2" height="8" />
+            <g id="mp-pb-end">
+              <rect class="mp-path" width="2" height="8" />
+            </g>
+            <g id="mp-pb-bar">
+              <rect id="mp-pb-line" class="mp-path" width="4" height="2" />
+              <circle id="mp-pb-marker" class="mp-path dark" cx="1" cy="1" r="1" />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="mp-ghost"></div>
+    </div>
+  </body>
+</html>
