@@ -44,9 +44,17 @@ function setTooltip(tooltip, e) {
 //  BUTTONS
 //
 
+function powerAudio(audio) {
+  for (file of mpConfig.files) {
+    let nuEl = document.createElement("source");
+    nuEl.src = mpConfig.location + file;
+    audio.appendChild(nuEl);
+  }
+}
+
 function powerCover(img, tooltip) {
   let active = false;
-  img.src = mpConfig.cover;
+  img.src = mpConfig.location + mpConfig.cover;
   tooltip.innerHTML = mpConfig.artist + " - " + mpConfig.song;
   img.addEventListener("mousedown", (e) => {
     e.preventDefault();
@@ -177,6 +185,7 @@ function powerProgressBar(marker, line, tooltip) {
 
 window.addEventListener("load", (event) => {
   audio = document.getElementById("mp-audio");
+  powerAudio(audio);
   powerCover(document.getElementById("mp-cover-art"), document.getElementById("mp-cover-tt"));
   powerPlayPauseBtn(document.getElementById("mp-play-pause"));
   powerVolumeKnob(document.getElementById("mp-vol-knob"), document.getElementById("mp-vol-tt"));

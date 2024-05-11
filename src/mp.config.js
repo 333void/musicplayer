@@ -1,4 +1,6 @@
 mpConfig = {
+  location: "music/",
+  files: ["toe.mp3", "toe.ogg"],
   artist: "toe",
   song: "メトロノーム",
   album: "the book about my idle plot on a vague anxiety",
